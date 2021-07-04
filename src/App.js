@@ -15,7 +15,7 @@ const App = () => {
   }, [apiResponse])
 
   const callAPI = () => {
-    fetch("http://localhost:9000/api/mongo/checkCode?" + new URLSearchParams({
+    fetch("https://fof-festival-api.herokuapp.com/api/mongo/checkCode?" + new URLSearchParams({
           code: 'mushie',
       }))
         .then(res => res.text())
