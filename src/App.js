@@ -1,7 +1,9 @@
+import dotenv from 'dotenv'
 import logo from './logo.svg';
 import './App.css';
 
 import { useEffect, useState } from 'react'
+dotenv.config()
 
 const App = () => {
   const [apiResponse, setApiResponse] = useState('')
