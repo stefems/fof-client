@@ -15,7 +15,12 @@ const App = () => {
   }, [apiResponse])
 
   const callAPI = () => {
-    fetch("https://fof-festival-api.herokuapp.com/api/mongo/checkCode?" + new URLSearchParams({
+    console.log(process.env.FIXIE_URL)
+    let url = 'https://fof-festival-api.herokuapp.com/api/mongo/checkCode?'
+    if (window.location.href.indexOf('localhost') != -1) {
+      url = 'http://localhost:9000/api/mongo/checkCode?'
+    }
+    fetch(url + new URLSearchParams({
           code: 'mushie',
       }))
         .then(res => res.text())
