@@ -26,11 +26,7 @@ const App = () => {
 	}, [])
 
 	if (authenticated === null) {
-		return (
-			<div>
-				LOADING
-			</div>
-		)
+		return null
 	}
 
 	return (
