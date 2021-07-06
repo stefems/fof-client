@@ -1,0 +1,110 @@
+.Form {
+	padding-top: 260px;
+	font-family: 'VCR Solid';
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+}
+
+.Form-left {
+	margin-left: 200px;
+}
+
+.Form-circle {
+	border: solid #FA15FF 5px;
+	color: #FA15FF;
+	padding: 20px 30px;
+	border-radius: 100%;
+	margin-bottom: 70px;
+	font-size: 36px;
+}
+.Form-ticket {
+	color: #2300FA;
+	margin-left: 18px;
+	font-size: 36px;
+}
+
+.Form-subtotal {
+	font-size: 26px;
+	color: #2300FA;
+	margin-bottom: 1em;
+}
+
+.Form-square {
+	width: 479px;
+}
+
+.Form-tax {
+	font-size: 26px;
+	color: #2300FA;
+	margin-bottom: 3em;
+}
+
+.Form-total {
+	font-size: 26px;
+	color: #2300FA;
+}
+
+.Form-right {
+	margin-right: 145px;
+}
+
+.Form-data {
+	margin-bottom: 1em;
+}
+
+.Form-input-label {
+	font-size: 26px;
+	color: #2300FA;
+}
+
+.Form-input {
+	border: none;
+	border-bottom: solid #2300FA 3px;
+	background: none;
+	outline: none;
+	font-size: 26px;
+	color: #2300FA;
+	font-family: 'VCR Solid';
+	padding-left: 12px;
+}
+
+.Form-card {
+	margin-top: 3em;
+}
+
+.Form-buttonClear {
+	display: inline-flex;
+	background: none;
+	border: none;
+	outline: none;
+	font-size: 36px;
+	cursor: pointer;
+	width: 160px;
+	text-align: center;
+	justify-content: center;
+}
+
+.Form-payment {
+	display: flex;
+}
+
+.Form-submit {
+	border: solid #2300FA 4px;
+	color: #FA15FF;
+	padding: 30px 20px;
+	border-radius: 100%;
+	font-size: 23px;
+	font-family: 'VCR Solid';
+	margin: auto;
+}
+
+.Form-back {
+	border: solid #FA15FF 4px;
+	color: #2300FA;
+	padding: 30px 40px;
+	border-radius: 100%;
+	font-size: 23px;
+	font-family: 'VCR Solid';
+	margin: 30px;
+}

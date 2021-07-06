@@ -1,53 +1,59 @@
-import dotenv from 'dotenv'
-import logo from './logo.svg';
 import './App.css';
-
+import {
+	BrowserRouter as Router,
+	Switch, Route
+} from "react-router-dom";
+import { PrivateRoute } from './components'
+import { Home, Tickets } from './pages'
 import { useEffect, useState } from 'react'
-dotenv.config()
+
+import { checkCode } from './requests'
 
 const App = () => {
-  const [apiResponse, setApiResponse] = useState('')
+	const [authenticated, setAuthenticated] = useState(null)
 
-  useEffect(() => {
-    callAPI()
-  })
+	useEffect( async () => {
+		console.log("SESSION BEGIN")
+		const code = localStorage.getItem('fof-code')
+		if (code) {
+			const valid = await checkCode(code)
+			if (valid) {
+				setAuthenticated(true)
+				return
+			}
+		}
+		setAuthenticated(false)
+	}, [])
 
-  useEffect(() =>{
-    console.log(apiResponse)
-  }, [apiResponse])
+	if (authenticated === null) {
+		return (
+			<div>
+				LOADING
+			</div>
+		)
+	}
 
-  const callAPI = () => {
-    console.log(process.env.FIXIE_URL)
-    let url = 'https://fof-festival-api.herokuapp.com/api/mongo/checkCode?'
-    if (window.location.href.indexOf('localhost') != -1) {
-      url = 'http://localhost:9000/api/mongo/checkCode?'
-    }
-    fetch(url + new URLSearchParams({
-          code: 'mushie',
-      }))
-        .then(res => res.text())
-        .then(res => setApiResponse(res))
-  }
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        {/* <p>{apiResponse}</p> */}
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<Router>
+			<Switch>
+				{/* <Route path="/about">
+					<About />
+				</Route>
+				<Route path="/schedule">
+					<Schedule />
+				</Route>
+				<Route path="/music">
+					<Music />
+				</Route> */}
+				<PrivateRoute authenticated={authenticated} path="/tickets">
+					<Tickets />
+				</PrivateRoute>
+				<Route path="/">
+					<Home  authenticated={authenticated}/>
+				</Route>
+			</Switch>
+		</Router>
+	);
 }
 
 export default App;

@@ -1,0 +1,45 @@
+.Home {
+	background: black;
+	width: 100vw;
+	height: 100vh;
+}
+
+.Home-unauth {
+	text-align: center;
+}
+
+.Home-title {
+	margin: 0;
+	padding-top: 300px;
+	font-size: 288px;
+	color: white;
+	font-family: 'Cirrus Cumulus';
+}
+
+.Home-form {
+	border: solid white 3px;
+	border-radius: 42px;
+	color: white;
+	font-family: 'VCR Solid';
+	padding: 20px;
+	display: inline-flex;
+	margin-top: 270px;
+	font-size: 30px;
+}
+
+.Home-input {
+	border: none;
+	border-bottom: solid white 3px;
+	padding-left: 12px;
+	background-color: unset;
+	outline: none;
+	font-size: 30px;
+	color: white;
+	font-family: 'VCR Solid';
+}
+
+.Home-ticketLink {
+	font-size: 30px;
+	color: white;
+	font-family: 'VCR Solid';
+}

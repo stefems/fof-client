@@ -1,0 +1,87 @@
+.Tickets-loading {
+	background: #2300FA;
+	width: 100vw;
+	height: 100vh;
+	transition: background 1s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.Tickets-loadingText {
+	color: #FF1A1A;
+	font-size: 48px;
+	font-family: 'VCR Solid';
+	display: flex;
+	align-items: flex-end;
+	max-width: 66vw;
+}
+.max {
+	text-align: center;
+}
+
+.Tickets-loadingText-container {
+	width: 3em;
+}
+
+.Tickets-loadingText-container:after {
+	color: #FF1A1A;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: bottom;
+	-webkit-animation: ellipsis steps(4,end) 1200ms infinite;
+	animation: ellipsis steps(4,end) 1200ms infinite;
+	content: "\2505"; /* ascii code for the ellipsis character */
+	width: 0px;
+	font-family: 'VCR Solid';
+	margin-left: 6px;
+	line-height: 34px;
+}
+
+@keyframes ellipsis {
+	to {
+		width: .8em;
+	}
+}
+
+@-webkit-keyframes ellipsis {
+	to {
+		width: .8em;
+	}
+}
+
+.Tickets-loaded {
+	background: linear-gradient(to top left, #b4e417, rgba(255, 153, 150, 0), #3646fb), linear-gradient(to top right, #f6c9ca, rgba(255, 153, 150, 0), #f8f383) rgba(255, 153, 150, 1);
+	width: 100vw;
+	height: 100vh;
+	transition: background .2s;
+}
+
+.Tickets-doneContainer {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.Tickets-done {
+	font-family: 'Cirrus Cumulus';
+	font-size: 126px;
+	text-align: center;
+	color: #FA15FF;
+}
+
+.Tickets-in {
+	margin-bottom: 40px;
+}
+
+.Tickets-email {
+	position: absolute;
+	bottom: 64px;
+	font-family: 'VCR Solid';
+	font-size: 25px;
+	color: #FA15FF;
+	max-width: 60%;
+	text-align: center;
+}

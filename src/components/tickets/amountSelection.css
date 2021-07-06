@@ -1,0 +1,88 @@
+.AmountSelection {
+	width: 50vw;
+	text-align: center;
+	margin: 0 auto;
+	padding-top: 174px;
+	font-family: 'VCR Solid';
+}
+
+.AmountSelection-heading {
+	color: #2300FA;
+	border: solid #2300FA 4px;
+	padding: 12px;
+	margin-bottom: 55px;
+	margin-top: 0;
+	text-align: center;
+	display: inline-flex;
+	font-weight: 400;
+	font-size: 38px;
+}
+
+.AmountSelection-paragraph {
+	color: #2300FA;
+	margin-bottom: 40px;
+	text-align: center;
+	font-size: 25px;
+}
+
+.AmountSelection-circle {
+	border: solid #FA15FF 4px;
+	border-radius: 100%;
+	padding: 20px 60px;
+	display: inline-flex;
+	align-items: center;
+	margin-bottom: 50px;
+}
+
+.AmountSelection-button {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 36px;
+}
+
+.AmountSelection-buttonClear {
+	display: flex;
+	background: none;
+	border: none;
+	outline: none;
+	font-size: 36px;
+	cursor: pointer;
+}
+
+.AmountSelection-count {
+	color: #FA15FF;
+	margin: 15px 0;
+}
+
+.AmountSelection-triangleUp {
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 15px solid #2300FA;;
+}
+
+.AmountSelection-triangleDown {
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 15px solid #2300FA;
+}
+
+.AmountSelection-ticket {
+	color: #2300FA;
+	margin-left: 18px;
+	font-size: 36px;
+}
+
+.AmountSelection-confirm {
+	border: solid #2300FA 4px;
+	color: #FA15FF;
+	padding: 30px 20px;
+	border-radius: 100%;
+	font-size: 23px;
+	font-family: 'VCR Solid';
+	margin: 0 auto;
+}
