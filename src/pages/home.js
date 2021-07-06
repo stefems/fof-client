@@ -16,8 +16,6 @@ const Home = ({ authenticated }) => {
 		window.location.reload()
 	}
 
-	// tranquil-impassioned-mushie
-
 	return (
 		<div className='Home'>
 			{!authenticated && <div className='Home-unauth'>
