@@ -1,23 +1,46 @@
 .About {
 	background: black;
-	width: 100vw;
-	height: 100vh;
 	padding: 20px;
 	box-sizing: border-box;
+	min-height: 100vh;
+	display: flex;
 }
 
 .About-grid {
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
-	gap: 20px;
+	column-gap: 20px;
 }
 
 .About-row {
 	font-family: 'Cirrus Cumulus';
 	justify-content: space-between;
-	font-size: 82px;
+	font-size: 9vh;
 	color: white;
 	display: flex;
+	flex-wrap: nowrap;
+}
+
+@media only screen and (max-width: 1023px) {
+	.About-row {
+		font-size: 7vh;
+	}
+}
+@media only screen and (max-width: 740px) {
+	.About-row {
+		font-size: 5vh;
+	}
+}
+@media only screen and (max-width: 500px) {
+	.About-row {
+		font-size: 3vh;
+		font-weight: bold;;
+	}
+}
+
+.About-row span {
+	white-space: nowrap;
+	margin-right: 1em;
 }
 
 .About-topLeft {
@@ -34,8 +57,14 @@
 	justify-content: flex-end;
 }
 
+@media only screen and (max-width: 1023px) {
+	.About-celebration {
+		grid-column: 1 / span 12;
+	}
+}
+
 .About-community {
-	grid-column: 1 / span 5;
+	grid-column: 1 / span 10;
 }
 
 .About-how {
@@ -44,4 +73,10 @@
 
 .About-know {
 	grid-column: 3 / span 10;
+}
+
+@media only screen and (max-width: 1023px) {
+	.About-know {
+		grid-column: 1 / span 12;
+	}
 }
