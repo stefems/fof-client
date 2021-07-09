@@ -38,8 +38,9 @@
 	font-family: 'VCR Solid';
 }
 
-.Home-ticketLink {
+.Home-link {
 	font-size: 30px;
 	color: white;
 	font-family: 'VCR Solid';
+	margin-right: 24px;
 }

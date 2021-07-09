@@ -1,0 +1,47 @@
+.About {
+	background: black;
+	width: 100vw;
+	height: 100vh;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.About-grid {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	gap: 20px;
+}
+
+.About-row {
+	font-family: 'Cirrus Cumulus';
+	justify-content: space-between;
+	font-size: 82px;
+	color: white;
+	display: flex;
+}
+
+.About-topLeft {
+	grid-column: 1 / span 9;
+}
+
+.About-festival {
+	grid-column: 4 / span 3;
+	justify-content: center;
+}
+
+.About-celebration {
+	grid-column: 4 / span 9;
+	justify-content: flex-end;
+}
+
+.About-community {
+	grid-column: 1 / span 5;
+}
+
+.About-how {
+	grid-column: 5 / span 4;
+}
+
+.About-know {
+	grid-column: 3 / span 10;
+}

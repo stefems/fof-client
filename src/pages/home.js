@@ -27,8 +27,11 @@ const Home = ({ authenticated }) => {
 			</div>}
 			{authenticated && <div>
 				<HomeLogo />
-				<Link to="/tickets" className='Home-ticketLink'>
+				<Link to="/tickets" className='Home-link'>
 					get tickets
+				</Link>
+				<Link to="/about" className='Home-link'>
+					about fof
 				</Link>
 			</div>}
 		</div>

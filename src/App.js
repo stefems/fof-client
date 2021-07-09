@@ -4,7 +4,7 @@ import {
 	Switch, Route
 } from "react-router-dom";
 import { PrivateRoute } from './components'
-import { Home, Tickets } from './pages'
+import { Home, Tickets, About } from './pages'
 import { useEffect, useState } from 'react'
 
 import { checkCode } from './requests'
@@ -13,7 +13,6 @@ const App = () => {
 	const [authenticated, setAuthenticated] = useState(null)
 
 	useEffect( async () => {
-		console.log("SESSION BEGIN")
 		const code = localStorage.getItem('fof-code')
 		if (code) {
 			const valid = await checkCode(code)
@@ -32,20 +31,21 @@ const App = () => {
 	return (
 		<Router>
 			<Switch>
-				{/* <Route path="/about">
-					<About />
-				</Route>
+				{/*
 				<Route path="/schedule">
 					<Schedule />
 				</Route>
 				<Route path="/music">
 					<Music />
 				</Route> */}
+				 <Route authenticated={authenticated} path="/about">
+					<About />
+				</Route>
 				<PrivateRoute authenticated={authenticated} path="/tickets">
 					<Tickets />
 				</PrivateRoute>
 				<Route path="/">
-					<Home  authenticated={authenticated}/>
+					<Home authenticated={authenticated}/>
 				</Route>
 			</Switch>
 		</Router>

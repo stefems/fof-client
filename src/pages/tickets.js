@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-
 import { canPurchase } from '../requests'
 
 import { AmountSelection, Form } from '../components'
@@ -21,8 +20,8 @@ const Tickets = () => {
 	}, [])
 
 	const check = async () => {
-		const result = await canPurchase(localStorage.getItem('fof-code'), 1)
-		setAllowPurchase(result)
+		const result = await canPurchase(localStorage.getItem('fof-code'))
+		setAllowPurchase(result.status)
 	}
 
 	return (
@@ -45,6 +44,7 @@ const Tickets = () => {
 							ticketCount={ticketCount}
 							back={() => setStep(1)}
 							done={() => setStep(3)}
+							setInvalidToken={() => setAllowPurchase(false)}
 						/>
 					}
 					{step === 3 &&
@@ -61,8 +61,11 @@ const Tickets = () => {
 				</>
 			)}
 			{!loading && allowPurchase === false && (
-				<div className='Tickets-loadingText max'>
+				<div className='Tickets-loadingText Tickets-max'>
 					The tickets available for this passcode have already been purchased :(
+					<a href="/" className={'Tickets-link'}>
+						return home
+					</a>
 				</div>
 			)}
 		</div>

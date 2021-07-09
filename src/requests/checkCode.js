@@ -11,7 +11,6 @@ const checkCode = async (code) => {
 	} else {
 		return false
 	}
-	
 }
 
 

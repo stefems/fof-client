@@ -1,9 +1,11 @@
 import env from "react-dotenv"
 
-const createPayment = async (token) => {
+const createPayment = async (token, person) => {
 	const body = JSON.stringify({
-		locationId: env.SQUARE_LOCATION_ID,
+		locationId: env.ENV === 'prod' ? env.SQUARE_LOCATION_ID_PROD : env.SQUARE_LOCATION_ID,
 		sourceId: token,
+		code: localStorage.getItem('fof-code'),
+		person: person
 	});
 	let url = 'https://fof-festival-api.herokuapp.com/api/square/purchase'
 	if (window.location.href.indexOf('localhost') !== -1) {
@@ -14,11 +16,11 @@ const createPayment = async (token) => {
 		headers: {
 			'Content-Type': 'application/json',
 		},
-		body,
+		body
 	});
 	if (paymentResponse.ok) {
-		//create person
-		//edit parent
+		// ^^ handles the whole thing!
+		// //send request to send email
 		return paymentResponse.json();
 	}
 	const errorBody = await paymentResponse.text();

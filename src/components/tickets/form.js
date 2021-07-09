@@ -1,6 +1,6 @@
 import env from "react-dotenv"
 import { useEffect, useRef, useState } from "react"
-import { createPayment } from '../../requests'
+import { createPayment, canPurchase } from '../../requests'
 
 import './form.css'
 
@@ -25,66 +25,105 @@ const initializeCard = async (payments) => {
 	return card; 
 }
 
-const tokenize = async (paymentMethod) => {
-	const tokenResult = await paymentMethod.tokenize();
-	if (tokenResult.status === 'OK') {
-		return tokenResult.token;
-	} else {
-		let errorMessage = `Tokenization failed-status: ${tokenResult.status}`;
-		if (tokenResult.errors) {
-			errorMessage += ` and errors: ${JSON.stringify(
-				tokenResult.errors
-			)}`;
-		}
-		throw new Error(errorMessage);
-	}
-}
-
-const Form = ({ back, ticketCount, done }) => {
+const Form = ({ back, ticketCount, done, setInvalidToken }) => {
 
 	const $cardButton = useRef()
 	const [formData, setFormData] = useState({})
+	const [showError, setShowError] = useState(false)
+	const [showValidationError, setShowValidationError] = useState(false)
+	const [card, setCard] = useState()
+	const [processing, setProcessing] = useState(false)
+
+
+	const tokenize = async (paymentMethod) => {
+		const tokenResult = await paymentMethod.tokenize();
+		if (tokenResult.status === 'OK') {
+			return tokenResult.token;
+		} else {
+			let errorMessage = `Tokenization failed-status: ${tokenResult.status}`;
+			if (tokenResult.errors) {
+				errorMessage += ` and errors: ${JSON.stringify(
+					tokenResult.errors
+				)}`;
+			}
+			$cardButton.current.disabled = false;
+		}
+	}
+
+	const validateData = () => {
+		setShowValidationError(false)
+		if (!formData.firstName || formData.firstName === '' ||
+			!formData.lastName || formData.lastName === '' ||
+			!formData.email || formData.email === '' ||
+			!formData.phone || formData.phone === '' ||
+			!formData.cardName || formData.cardName === '') {
+			setTimeout(() => setShowValidationError(true), 700)
+			return false
+		}
+		return true
+	}
 
 	const handlePaymentMethodSubmission = async (event, paymentMethod) => {
 		event.preventDefault();
-	
-		try {
-			// disable the submit button as we await tokenization and make a
-			// payment request.
-			$cardButton.current.disabled = true;
-			const token = await tokenize(paymentMethod);
-			const paymentResults = await createPayment(token);
-			done();
-		} catch (e) {
-			$cardButton.current.disabled = false;
-			console.error(e.message);
+		$cardButton.current.disabled = true;
+		if (validateData()) {
+			try {
+				setProcessing(true)
+				const token = await tokenize(paymentMethod);
+				if (!token) {
+					return
+				}
+				const paymentResults = await createPayment(token, formData);
+				done();
+			} catch (e) {
+				// todo lots of possible errors here
+				//setInvalidToken()
+				console.error(e.message);
+			}
+		} else {
+			setProcessing(false)
+			setTimeout(() => {
+				$cardButton.current.disabled = false
+			}, 800)
 		}
 	}
 
 	useEffect(async () => {
+		$cardButton.current.disabled = true;
+
 		if (!window.Square) {
-			throw new Error('Square.js failed to load properly');
+			setShowError(true)
+			return
+			// throw new Error('Square.js failed to load properly');
 		}
-		const payments = window.Square.payments(env.SQUARE_ID, env.SQUARE_LOCATON_ID);
-		let card;
+		const payments = window.Square.payments(env.ENV === 'prod' ? env.SQUARE_ID_PROD : env.SQUARE_ID, env.SQUARE_LOCATON_ID);
 		try {
-			card = await initializeCard(payments);
+			let card = await initializeCard(payments);
+			setCard(card);
 		} catch (e) {
+			setShowError(true)
 			console.error('Initializing Card failed', e);
 			return;
 		}
-
-		$cardButton.current.addEventListener('click', async function (event) {
-			await handlePaymentMethodSubmission(event, card);
-		});
+		$cardButton.current.disabled = false
 	}, [])
 
 	const handleChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value})
 	}
 
+	useEffect(() => {
+		if (showError) {
+			$cardButton.current.disabled = true
+		}
+	}, [showError])
+	
 	return (
 		<div className='Form'>
+			{processing && <div className={'Form-processing'}>
+				processing
+				<div className='Form-processing-container' />
+			</div>}
 			<div className='Form-left'>
 				<div className='Form-circle'>
 					{ticketCount}
@@ -131,12 +170,23 @@ const Form = ({ back, ticketCount, done }) => {
 					</span>
 					<input name={'cardName'} className='Form-input' type="text" value={formData.cardName || ''} onChange={handleChange}/>
 				</div>
+				{showError && <div className='Form-error'>
+					we've had a problem with our payment system :( Please try again later!
+				</div>}
+				<div className={`Form-error ${showValidationError ? 'Form-validationShown' : 'Form-validation'}`}>
+					we need your information! please fill out all the inputs above
+				</div>
 				<form id="payment-form">
 					<div className='Form-square' id="card-container"></div>
 					<button onClick={back} className='Form-back Form-buttonClear' >
 						BACK
 					</button>
-					<button className='Form-submit Form-buttonClear' ref={$cardButton} type="button">
+					<button
+						onClick={(event) => handlePaymentMethodSubmission(event, card)}
+						className='Form-submit Form-buttonClear'
+						ref={$cardButton} 
+						type="button"
+					>
 						PURCHASE
 					</button>
 				</form>
