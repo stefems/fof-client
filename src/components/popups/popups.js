@@ -3,7 +3,7 @@ import Draggable from 'react-draggable'
 import { Link } from "react-router-dom";
 
 import img from '../../music.png'
-import joinButton from '../../joinButton.svg'
+import { ReactComponent as ReactLogo } from '../../joinButton.svg'
 
 import './popups.css'
 
@@ -101,7 +101,7 @@ const Popups = () => {
 					<div className='Popups-joinContainer'>
 						<Link to={'/tickets'} className='Popups-join'> 
 							JOIN<br/>US
-							<img src={joinButton} className='Popups-joinButtonIcon' />
+							<ReactLogo className='Popups-joinButtonIcon' />
 						</Link>
 						<div className='Popups-smile'>
 							;-)
