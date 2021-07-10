@@ -19,11 +19,15 @@ const Home = ({ authenticated }) => {
 	return (
 		<div className='Home'>
 			{!authenticated && <div className='Home-unauth'>
-				<h1 className='Home-title'>FOF</h1>
-				<form className='Home-form' onSubmit={changeCode}>
-					<span>secret password:</span>
-					<input className='Home-input' type="text" value={code} onChange={handleChange} />
-				</form>
+				<h1 className='Home-title'>
+					FoF
+				</h1>
+				<div className='Home-formContainer'>
+					<form className='Home-form' onSubmit={changeCode}>
+						<span>secret password:</span>
+						<input className='Home-input' type="text" value={code} onChange={handleChange} />
+					</form>
+				</div>
 			</div>}
 			{authenticated && <div>
 				<HomeLogo />
