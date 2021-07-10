@@ -3,6 +3,7 @@ import { Popups } from '../components'
 import './about.css'
 
 const About = () => {
+
 	return (
 		<div className='About'>
 			<Popups />

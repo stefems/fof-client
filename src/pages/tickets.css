@@ -1,7 +1,7 @@
 .Tickets-loading {
 	background: #2300FA;
-	width: 100vw;
-	height: 100vh;
+	min-width: 100vw;
+	min-height: 100vh;
 	transition: background 1s;
 	display: flex;
 	align-items: center;
@@ -20,6 +20,11 @@
 .Tickets-max {
 	text-align: center;
 	flex-wrap: wrap;
+}
+@media only screen and (max-width: 700px) {
+	.Tickets-max {
+		font-size: 28px;
+	}
 }
 
 .Tickets-loadingText-container {
@@ -54,9 +59,11 @@
 
 .Tickets-loaded {
 	background: linear-gradient(to top left, #b4e417, rgba(255, 153, 150, 0), #3646fb), linear-gradient(to top right, #f6c9ca, rgba(255, 153, 150, 0), #f8f383) rgba(255, 153, 150, 1);
-	width: 100vw;
-	height: 100vh;
+	min-width: 100vw;
+	min-height: 100vh;
 	transition: background .2s;
+	display: flex;
+	align-items: center;
 }
 
 .Tickets-doneContainer {
@@ -78,6 +85,17 @@
 	margin-bottom: 40px;
 }
 
+@media only screen and (max-width: 700px) {
+	.Tickets-done {
+		font-weight: bold;
+		font-size: 100px;
+	}
+	.Tickets-email {
+		font-size: 18px;
+		max-width: 90%;
+	}
+}
+
 .Tickets-email {
 	position: absolute;
 	bottom: 64px;
@@ -87,10 +105,35 @@
 	max-width: 60%;
 	text-align: center;
 }
+@media only screen and (max-width: 500px) {
+	.Tickets-done {
+		font-weight: bold;
+		font-size: 60px;
+	}
+	.Tickets-email {
+		font-size: 18px;
+		max-width: 90%;
+	}
+}
 
 .Tickets-link {
 	width: 100%;
 	margin-top: 20px;
 	color: white;
 	text-decoration: underline;
+}
+
+.Tickets-link:hover {
+	color: #FF1A1A;
+}
+
+.Tickets-linkHome {
+	width: 100%;
+	margin-left: 20px;
+	color: #3646fb;
+	text-decoration: underline;
+}
+
+.Tickets-linkHome:hover {
+	color: #FF1A1A;
 }

@@ -178,17 +178,19 @@ const Form = ({ back, ticketCount, done, setInvalidToken }) => {
 				</div>
 				<form id="payment-form">
 					<div className='Form-square' id="card-container"></div>
-					<button onClick={back} className='Form-back Form-buttonClear' >
-						BACK
-					</button>
-					<button
-						onClick={(event) => handlePaymentMethodSubmission(event, card)}
-						className='Form-submit Form-buttonClear'
-						ref={$cardButton} 
-						type="button"
-					>
-						PURCHASE
-					</button>
+					<div className='Form-buttons'>
+						<button onClick={back} className='Form-back Form-buttonClear' >
+							BACK
+						</button>
+						<button
+							onClick={(event) => handlePaymentMethodSubmission(event, card)}
+							className='Form-submit Form-buttonClear'
+							ref={$cardButton} 
+							type="button"
+						>
+							PURCHASE
+						</button>
+					</div>
 				</form>
 			</div>
 		</div>

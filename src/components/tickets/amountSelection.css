@@ -1,8 +1,7 @@
 .AmountSelection {
-	width: 50vw;
+	width: 63vw;
 	text-align: center;
 	margin: 0 auto;
-	padding-top: 174px;
 	font-family: 'VCR Solid';
 }
 
@@ -28,7 +27,7 @@
 .AmountSelection-circle {
 	border: solid #FA15FF 4px;
 	border-radius: 100%;
-	padding: 20px 60px;
+	padding: 24px 60px;
 	display: inline-flex;
 	align-items: center;
 	margin-bottom: 50px;
@@ -85,4 +84,37 @@
 	font-size: 23px;
 	font-family: 'VCR Solid';
 	margin: 0 auto;
+}
+
+.AmountSelection-confirm:hover {
+	color: #2300FA;
+	border-color: #FA15FF;
+}
+
+@media only screen and (max-width: 500px) {
+	.AmountSelection {
+		width: 90vw;
+	}
+	.AmountSelection-paragraph {
+		font-size: 20px;
+	}
+	.AmountSelection-heading {
+		font-size: 30px;
+	}
+	.AmountSelection-ticket {
+		font-size: 24px;
+	}
+	.AmountSelection-circle {
+		padding: 15px 30px;
+	}
+	.AmountSelection-button {
+		font-size: 24px;
+	}
+	.AmountSelection-triangleUp { 
+		transform: scale(.7);
+	}
+	
+	.AmountSelection-triangleDown {
+		transform: scale(.7);
+	}
 }

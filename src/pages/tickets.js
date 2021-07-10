@@ -4,6 +4,7 @@ import { canPurchase } from '../requests'
 import { AmountSelection, Form } from '../components'
 
 import './tickets.css'
+import { Link } from "react-router-dom"
 
 const Tickets = () => {
 
@@ -55,6 +56,9 @@ const Tickets = () => {
 							</div>
 							<div className={'Tickets-email'}>
 								{`we’ll send an email with confirmation, guest codes & newsletter updates leading up to FOF!`}
+								<Link to='/about' className={'Tickets-linkHome'}>
+									back home
+								</Link>
 							</div>
 						</div>
 					}

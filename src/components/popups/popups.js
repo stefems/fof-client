@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Draggable from 'react-draggable'
 import { Link } from "react-router-dom";
-
 import img from '../../music.png'
 import { ReactComponent as ReactLogo } from '../../joinButton.svg'
 
@@ -37,7 +36,7 @@ const Popups = () => {
 	const dragStates = [showInfo, showMusic, showTalks, showJoin]
 	const drags = [setShowInfo, setShowMusic, setShowTalks, setShowJoin]
 
-	useEffect(() => {
+	useEffect(async () => {
 		for (let i = 0; i < drags.length; i++){
 			const drag = drags[i]
 			setTimeout(() => {
