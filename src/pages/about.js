@@ -1,18 +1,11 @@
+import { Popups } from '../components'
+
 import './about.css'
-/*
-Friends     of       Friends 
-            Festival                     
-                               is a celebration
-of community 
-                   & how 
-          we are           interconnected,
-in ways 
-         we       don’t      even     know. 
-*/
 
 const About = () => {
 	return (
 		<div className='About'>
+			<Popups />
 			<div className='About-grid'>
 				<div className='About-row About-topLeft'>
 					<span>Friends</span>

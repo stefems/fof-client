@@ -1,0 +1,150 @@
+.Popups {
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+}
+
+
+.Popups-box {
+	background: #E5E5E5;
+	border: 1px solid #999;
+	border-radius: 3px;
+	max-height: 436px;
+	width: 323px;
+	float: left;
+	overflow: hidden;
+	padding-bottom: 4px;
+	position: absolute;
+}
+
+.Popups-box0 {
+	left: 5%;
+	top: 5%;
+}
+.Popups-box1 {
+	left: 60%;
+	top: 10%;
+}
+.Popups-box2 {
+	left: 2%;
+	top: 40%;
+}
+.Popups-box3 {
+	left: 30%;
+	top: 30%;
+}
+
+
+.Popups-talks {
+	margin: 20px;
+}
+
+.Popups-title {
+	margin: 0 30px;
+}
+
+.Popups-purple {
+	color: #FA15FF;
+	margin: 20px;
+}
+
+.Popups-talkTitle {
+	color: #6F74F9;
+	margin-bottom: 12px;
+}
+
+.Popups-talkDescription {
+	margin-bottom: 20px;
+}
+.Popups-talkDescription:last-child {
+	margin-bottom: 0;
+}
+
+.Popups-no-cursor {
+	cursor: auto;
+}
+
+.Popups-cursor {
+	cursor: move;
+}
+
+.react-draggable strong {
+	color: white;
+	text-transform: uppercase;
+	background: #1005E0;
+	border: 1px solid #999;
+	display: block;
+	padding: 7px 5px;
+	text-align: center;
+	box-sizing: border-box;
+	width: 100%;
+	font-family: 'VCR Solid';
+	position: relative;
+	font-size: 18px;
+}
+
+.Popups-joinButtonIcon {
+	position: absolute;
+	width: 59%;
+}
+
+.Popups-joinContainer {
+	margin: 150px 0;
+}
+
+.Popups-smile {
+	position: absolute;
+	bottom: 4px;
+	color: #1005E0;
+	width: 100%;
+	text-align: center;
+}
+
+.Popups-join {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	font-size: 44px;
+	text-align: center;
+	color: #1005E0;
+}
+
+.Popups-join:hover {
+	color: #FA15FF;
+}
+.Popups-join:hover img {
+	fill: #FA15FF;
+}
+
+.Popups-close {
+	position: absolute;
+	right: 8px;
+}
+
+.Popups-image {
+	width: 100%;
+	display: flex;
+	padding-left: 8px;
+	box-sizing: border-box;
+}
+
+.Popups-content {
+	font-family: 'VCR Solid';
+	overflow: auto;
+	max-height: 400px;
+	margin-top: 4px;
+	margin-right: 4px;
+}
+
+.Popups-content::-webkit-scrollbar {
+	width: .4em;
+}
+ 
+.Popups-content::-webkit-scrollbar-thumb {
+	background-color: black;
+}
