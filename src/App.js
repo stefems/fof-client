@@ -4,21 +4,32 @@ import {
 	Switch, Route
 } from "react-router-dom";
 import { PrivateRoute } from './components'
-import { Home, Tickets, About } from './pages'
+import { Home, Tickets, About, Errors } from './pages'
 import { useEffect, useState } from 'react'
 
 import { checkCode } from './requests'
 
 const App = () => {
 	const [authenticated, setAuthenticated] = useState(null)
+	const [errors, setErrors] = useState()
 
 	useEffect( async () => {
 		const code = localStorage.getItem('fof-code')
 		if (code) {
 			const valid = await checkCode(code)
-			if (valid) {
+			if (valid && !valid.errors) {
 				setAuthenticated(true)
 				return
+			} else if (valid.errors) {
+				if (valid.errors !== 'invalid code' && window.location.pathname !== '/errors') {
+					window.location.href = '/errors';
+					return
+				} else if (valid.errors === 'invalid code' && window.location.pathname === '/errors') {
+					window.location.href = '/';
+					return
+				} else {
+					setErrors(valid.errors)
+				}
 			}
 		}
 		setAuthenticated(false)
@@ -27,20 +38,16 @@ const App = () => {
 	if (authenticated === null) {
 		return null
 	}
-
+	
 	return (
 		<Router>
 			<Switch>
-				{/*
-				<Route path="/schedule">
-					<Schedule />
+				<Route path="/errors">
+					<Errors errors={errors}/>
 				</Route>
-				<Route path="/music">
-					<Music />
-				</Route> */}
-				 <Route authenticated={authenticated} path="/about">
+				<PrivateRoute authenticated={authenticated} path="/about">
 					<About />
-				</Route>
+				</PrivateRoute>
 				<PrivateRoute authenticated={authenticated} path="/tickets">
 					<Tickets />
 				</PrivateRoute>

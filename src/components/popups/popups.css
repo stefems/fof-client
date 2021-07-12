@@ -33,8 +33,16 @@
 	top: 40%;
 }
 .Popups-box3 {
-	left: 30%;
-	top: 30%;
+	left: 60%;
+	top: 65%;
+}
+.Popups-box4 {
+	left: 74%;
+	top: 32%;
+}
+.Popups-box5 {
+	left: 33%;
+	top: 27%;
 }
 
 @media only screen and (max-width: 900px) {
@@ -47,8 +55,16 @@
 		top: 40%;
 	}
 	.Popups-box3 {
-		left: 30%;
-		top: 30%;
+		left: 55%;
+		top: 60%;
+	}
+	.Popups-box4 {
+		left: 58%;
+		top: 18%;
+	}
+	.Popups-box5 {
+		left: 35%;
+		top: 28%;
 	}
 }
 
@@ -62,12 +78,18 @@
 		top: 37%;
 	}
 	.Popups-box3 {
-		left: 12%;
-		top: 19%;
+		left: 24%;
+		top: 64%;
+	}
+	.Popups-box4 {
+		left: 9%;
+		top: 49%;
+	}
+	.Popups-box5 {
+		left: 19%;
+		top: 11%;
 	}
 }
-
-
 
 .Popups-talks {
 	margin: 20px;

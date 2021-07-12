@@ -5,12 +5,11 @@ const AmountSelection = ({ ticketCount, setTicketCount, confirm }) => {
 	return (
 		<div className='AmountSelection'>
 			<h1 className='AmountSelection-heading'>
-				General Admission: $250
+				$250 per person
 			</h1>
 			<div className='AmountSelection-paragraph'>
-				includes 3 chef lunch x dinners,
-				campsite, access to all workshops, 
-				music,2 vouchers to the general store. 
+				ticket includes 3 dinners and 2 lunches by chef Tara Norvell.
+				A tent site, communal utilities, and access to all music and programming.
 			</div>
 			<div className='AmountSelection-paragraph'>
 				max 2 tickets per person

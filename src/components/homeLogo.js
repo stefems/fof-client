@@ -4,7 +4,7 @@ import './homeLogo.css'
 const HomeLogo = () => {
 	return (
 		<Link to="/" className='HomeLogo'>
-			FOF
+			FoF
 		</Link>
 	)
 }

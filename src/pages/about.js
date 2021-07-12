@@ -20,23 +20,16 @@ const About = () => {
 					<span>is a celebration</span>
 				</div>
 				<div className='About-row About-community'>
-					<span>of community</span>
+					<span>of summer's end</span>
 				</div>
 				<div className='About-row About-how'>
-					<span>&amp; how</span>
+					<span>&amp;</span>
 				</div>
 				<div className='About-row About-know'>
-					<span>we are</span>
-					<span>interconnected,</span>
+					<span>deep friendship</span>
 				</div>
-				<div className='About-row About-community'>
-					<span className='About-'>in ways</span>
-				</div>
-				<div className='About-row About-know'>
-					<span className='About-'>we</span>
-					<span className='About-'>don't</span>
-					<span className='About-'>even</span>
-					<span className='About-'>know.</span>
+				<div className='About-row About-celebration'>
+					<span className='About-'>&amp; love</span>
 				</div>
 			</div>
 		</div>

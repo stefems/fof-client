@@ -15,6 +15,7 @@
 	display: flex;
 	align-items: flex-end;
 	max-width: 66vw;
+	margin-left: .7em;
 }
 
 .Tickets-max {

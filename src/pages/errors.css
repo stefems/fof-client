@@ -1,0 +1,15 @@
+.Errors {
+	min-width: 100vw;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: black;
+	color: #FF1A1A;
+	font-family: 'VCR Solid';
+	font-size: 24px;
+}
+
+.Errors div {
+	padding: 20px;
+}

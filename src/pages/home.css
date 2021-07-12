@@ -11,12 +11,42 @@
 	text-align: center;
 }
 
+.Home-auth {
+
+}
+
+.Home-illo {
+	
+}
+
 .Home-title {
 	margin: 0;
 	font-size: 288px;
 	color: white;
 	font-family: 'Cirrus Cumulus';
+	width: 100vw;
+	justify-content: center;
+	display: flex;
 }
+.Home-spread span {
+	transition: transform .5s linear;
+	transform: translateX(0) translateY(0px)
+}
+
+.Home-spread span:nth-child(1){
+	transform: translateX(-100%);
+}
+.Home-spread span:nth-child(3){
+	transform: translateX(100%);
+}
+
+.Home-diagonal span:nth-child(1){
+	transform: translateX(-25vw) translateY(-25vh);
+}
+.Home-diagonal span:nth-child(3){
+	transform: translateX(25vw) translateY(25vh);
+}
+
 .Home-formContainer {
 	position: absolute;
 	width: 100%;
@@ -47,11 +77,23 @@
 }
 
 .Home-link {
-	font-size: 30px;
-	color: white;
-	font-family: 'VCR Solid';
-	margin-right: 24px;
+	width: 100%;
+	display: flex;
 }
+
+.Home-illo {
+	width: 100%;
+}
+
+@keyframes hue {
+	0%, 100%  { filter: hue-rotate(0deg); }
+	50% { filter: hue-rotate(180deg); }
+}
+
+.Home-link:hover .Home-illo {
+	animation: hue 3s infinite;
+}
+
 
 @media only screen and (max-width: 820px) {
 	.Home-title {
@@ -65,9 +107,21 @@
 		font-size: 24px;
 		width: 50%;
 	}
+	.Home-spread span:nth-child(1){
+		transform: translateX(-70%);
+	}
+	.Home-spread span:nth-child(3){
+		transform: translateX(70%);
+	}
+	.Home-diagonal span:nth-child(1){
+		transform: translateX(-15vw) translateY(-15vh);
+	}
+	.Home-diagonal span:nth-child(3){
+		transform: translateX(15vw) translateY(15vh);
+	}
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 650px) {
 	.Home-title {
 		font-size: 120px;
 	}
@@ -83,5 +137,21 @@
 		font-size: 24px;
 		width: 90%;
 	}
+	.Home-spread span:nth-child(1){
+		transform: translateX(-150%);
+	}
+	.Home-spread span:nth-child(3){
+		transform: translateX(150%);
+	}
+	.Home-diagonal span:nth-child(1){
+		transform: translateX(-20vw) translateY(-20vh);
+	}
+	.Home-diagonal span:nth-child(3){
+		transform: translateX(20vw) translateY(20vh);
+	}
+	
+}
+
+@media only screen and (max-width: 1300px) {
 
 }

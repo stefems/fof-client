@@ -74,8 +74,10 @@ const Form = ({ back, ticketCount, done, setInvalidToken }) => {
 					return
 				}
 				const paymentResults = await createPayment(token, formData);
+				console.log(paymentResults)
 				done();
 			} catch (e) {
+				console.log(e)
 				// todo lots of possible errors here
 				//setInvalidToken()
 				console.error(e.message);

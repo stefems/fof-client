@@ -16,7 +16,7 @@ const Tickets = () => {
 	useEffect(async () => {
 		await check();
 		setTimeout(() => {
-			setLoading(false)
+			setLoading(	)
 		}, 1000)
 	}, [])
 
@@ -55,7 +55,7 @@ const Tickets = () => {
 								<div>:&nbsp;)</div>
 							</div>
 							<div className={'Tickets-email'}>
-								{`we’ll send an email with confirmation, guest codes & newsletter updates leading up to FOF!`}
+								{`Congratulations! We’re so excited to see you. In the next week you will receive a confirmation email with further details and a unique code to share with one friend who you’d like to have join you. Let the mycelial friendship network grow...`}
 								<Link to='/about' className={'Tickets-linkHome'}>
 									back home
 								</Link>
@@ -67,7 +67,7 @@ const Tickets = () => {
 			{!loading && allowPurchase === false && (
 				<div className='Tickets-loadingText Tickets-max'>
 					The tickets available for this passcode have already been purchased :(
-					<a href="/" className={'Tickets-link'}>
+					<a href="/about" className={'Tickets-link'}>
 						return home
 					</a>
 				</div>
