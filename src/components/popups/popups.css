@@ -7,17 +7,101 @@
 	left: 0;
 }
 
+.Popups-container {
+	padding: 20px;
+}
+
+.Popups-container div {
+	margin-bottom: 1.5em;
+}
+
+.Popups-normal {
+	color: black;
+}
+
+.Popups-caps {
+	text-transform: uppercase;
+}
+.Popups-rainbow span {
+	width: 100%;
+	display: block;
+	margin-bottom: .5em;
+}
+.Popups-rainbow span:nth-child(1){
+	color: #FF1A1A;
+}
+.Popups-rainbow span:nth-child(2){
+	color: #FA15FF;
+	text-align: right;
+	right: 25%;
+	position: relative;
+}
+.Popups-rainbow span:nth-child(3){
+	color: #2300FA;
+	text-align: right;
+}
+.Popups-rainbow span:nth-child(4){
+	color: #FA9C10;
+	text-align: right;
+	right: 25%;
+	position: relative;
+}
+.Popups-rainbow span:nth-child(5){
+	color: #0DFF5F;
+	text-align: right;
+	right: 50%;
+	position: relative;
+}
+.Popups-rainbow span:nth-child(6){
+	color: #158FFF;
+}
+.Popups-rainbow span:nth-child(7){
+	color: #29A62E;
+	right: 50%;
+	position: relative;
+	text-align: right;
+}
+.Popups-rainbow span:nth-child(8){
+	color: #FA15FF;
+	text-align: right;
+}
+.Popups-orange {
+	color: #FA9C10;
+	text-transform: uppercase;
+}
+.Popups-green {
+	color: #29A62E;
+	text-transform: uppercase;
+}
+.Popups-g {
+	font-size: 32px;
+	color: #29A62E;
+}
+.Popups-p {
+	font-size: 32px;
+	color: #FA15FF;
+}
+.Popups-b {
+	font-size: 32px;
+	color: #158FFF;
+}
+
+.Popups-blue {
+	color: #158FFF;
+}
+
+.Popups-red {
+	color: #FF1A1A;
+}
 
 .Popups-box {
 	background: #E5E5E5;
-	border: 1px solid #999;
-	border-radius: 3px;
 	max-height: 436px;
 	width: 323px;
 	float: left;
 	overflow: hidden;
-	padding-bottom: 4px;
 	position: absolute;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .Popups-box0 {
@@ -25,24 +109,52 @@
 	top: 5%;
 }
 .Popups-box1 {
-	left: 60%;
-	top: 10%;
+	left: 73%;
+	top: 3%;
 }
 .Popups-box2 {
-	left: 2%;
-	top: 40%;
+	left: 33%;
+	top: 2%;
 }
 .Popups-box3 {
-	left: 60%;
-	top: 65%;
+	left: 35%;
+	top: 40%;
 }
 .Popups-box4 {
-	left: 74%;
-	top: 32%;
+	left: 5%;
+	top: 48%;
 }
 .Popups-box5 {
-	left: 33%;
-	top: 27%;
+	left: 69%;
+	top: 51%;
+}
+.Popups-box6 {
+	left: 17%;
+	top: 45%;
+}
+.Popups-box7 {
+	left: 35%;
+	top: 54%;
+}
+.Popups-box8 {
+	left: 24%;
+	top: 9%;
+}
+.Popups-box9 {
+	left: 72%;
+	top: 45%;
+}
+.Popups-box10 {
+	left: 40%;
+	top: 14%;
+}
+.Popups-box11 {
+	left: 10%;
+	top: 51%;
+}
+.Popups-box12 {
+	left: 45%;
+	top: 55%;
 }
 
 @media only screen and (max-width: 900px) {
@@ -55,16 +167,44 @@
 		top: 40%;
 	}
 	.Popups-box3 {
-		left: 55%;
+		left: 25%;
 		top: 60%;
 	}
 	.Popups-box4 {
-		left: 58%;
+		left: 38%;
 		top: 18%;
 	}
 	.Popups-box5 {
 		left: 35%;
 		top: 28%;
+	}
+	.Popups-box6 {
+		left: 17%;
+		top: 45%;
+	}
+	.Popups-box7 {
+		left: 35%;
+		top: 54%;
+	}
+	.Popups-box8 {
+		left: 24%;
+		top: 9%;
+	}
+	.Popups-box9 {
+		left: 52%;
+		top: 45%;
+	}
+	.Popups-box10 {
+		left: 40%;
+		top: 14%;
+	}
+	.Popups-box11 {
+		left: 10%;
+		top: 51%;
+	}
+	.Popups-box12 {
+		left: 45%;
+		top: 55%;
 	}
 }
 
@@ -89,6 +229,34 @@
 		left: 19%;
 		top: 11%;
 	}
+	.Popups-box6 {
+		left: 17%;
+		top: 45%;
+	}
+	.Popups-box7 {
+		left: 25%;
+		top: 54%;
+	}
+	.Popups-box8 {
+		left: 24%;
+		top: 9%;
+	}
+	.Popups-box9 {
+		left: 22%;
+		top: 45%;
+	}
+	.Popups-box10 {
+		left: 20%;
+		top: 14%;
+	}
+	.Popups-box11 {
+		left: 10%;
+		top: 51%;
+	}
+	.Popups-box12 {
+		left: 25%;
+		top: 55%;
+	}
 }
 
 .Popups-talks {
@@ -107,6 +275,8 @@
 .Popups-talkTitle {
 	color: #6F74F9;
 	margin-bottom: 12px;
+	display: block;
+	text-transform: uppercase;
 }
 
 .Popups-talkDescription {
@@ -121,14 +291,13 @@
 }
 
 .Popups-cursor {
-	cursor: move;
+	cursor: grab;
 }
 
 .react-draggable strong {
 	color: white;
 	text-transform: uppercase;
 	background: #1005E0;
-	border: 1px solid #999;
 	display: block;
 	padding: 7px 5px;
 	text-align: center;
@@ -190,20 +359,20 @@
 	position: absolute;
 	right: 8px;
 }
+.Popups-close:hover {
+	cursor: pointer;
+}
 
 .Popups-image {
 	width: 100%;
-	display: flex;
-	padding-left: 8px;
+	display: inline-block;
 	box-sizing: border-box;
 }
 
 .Popups-content {
 	font-family: 'VCR Solid';
 	overflow: auto;
-	max-height: 400px;
-	margin-top: 4px;
-	margin-right: 4px;
+	max-height: 411px;
 }
 
 .Popups-content::-webkit-scrollbar {

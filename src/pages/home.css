@@ -5,6 +5,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	overflow: hidden;
 }
 
 .Home-unauth {
@@ -77,12 +78,11 @@
 }
 
 .Home-link {
-	width: 100%;
-	display: flex;
+	width: 100vw;
 }
 
 .Home-illo {
-	width: 100%;
+	width: 100vw;
 }
 
 @keyframes hue {
@@ -119,6 +119,14 @@
 	.Home-diagonal span:nth-child(3){
 		transform: translateX(15vw) translateY(15vh);
 	}
+	.Home-link {
+		height: 100vw;
+		width: unset;
+	}
+	.Home-illo {
+		height: 100vh;
+		width: unset;
+	}
 }
 
 @media only screen and (max-width: 650px) {
@@ -149,9 +157,7 @@
 	.Home-diagonal span:nth-child(3){
 		transform: translateX(20vw) translateY(20vh);
 	}
-	
-}
-
-@media only screen and (max-width: 1300px) {
-
+	.Home-illo {
+		animation: hue 3s infinite;
+	}
 }

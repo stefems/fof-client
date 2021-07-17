@@ -1,145 +1,232 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Draggable from 'react-draggable'
 import { Link } from "react-router-dom";
-import img from '../../music.png'
-import { ReactComponent as ReactLogo } from '../../joinButton.svg'
+import music from '../../music.png'
+import img1 from '../../img1.png'
+import img2 from '../../img2.png'
+import img3 from '../../img3.png'
+import img4 from '../../img4.png'
 
 import './popups.css'
 
-const titles = ['FoF', 'where who what', 'music', 'featured friends', 'what to expect', 'tickets']
 const talks = [
 	{
 		title: 'Enlightenment Wines',
-		description: ''
+		link: 'https://enlightenmentwines.com/'
 	},
 	{
 		title: 'Tara Norvell',
-		description: ''
+		link: 'https://www.instagram.com/tara.norvell/?hl=en'
 	},
 	{
 		title: 'Yesfolk Kombucha ',
-		description: ''
+		link: 'https://www.yesfolktonics.com/'
 	},
 	{
 		title: 'Star Route Farm',
-		description: ''
+		link: 'http://www.starroutefarmny.com/'
 	},
 	{
 		title: 'Brooklyn Public Farm',
-		description: ''
+		link: 'https://brooklynpublicfarm.org/'
 	},
 	{
 		title: 'Smallhold',
-		description: ''
+		link: 'https://www.smallhold.com/'
 	},
 	{
 		title: 'Your Other Left Ear',
-		description: ''
-	},
-	{
-		title: 'and more...',
-		description: ''
+		link: 'https://yourotherleftear.com/'
 	}
 ]
-const expectations = [
-	{
-		title: '',
-		description: 'This is bare-bones camping. Large canvas shading tents, grassy dance floor, mazes mowed into the tall grass, and composting toilets. Outdoor very simple not fancy composting toilets.'
-	},
-	{
-		title: '',
-		description: 'Lunch and dinner will be prepared daily by chef Tara Norvell over the communal fire. '
-	},
-	{
-		title: 'A general store tent with:',
-		list: [
-			'the basics, local farm veg, local eggs, dairy, and cured sausages - their farmers in  attendance.',
-			`A selection of chilled natural wine, meads, and local beers. Kombucha and troy NY seltzer water.`,
-			'Handmade snacks',
-			'Your Other Left Ear curated bath, beauty, and vintage goods',
-			'As well as camping necessities such as headlamps, batteries, personal hygiene items, and natural sunscreen and bug spray.'
-		]
-	},
-	{
-		title: 'Slip Away Cafe',
-		description: 'A 3-day-only hilltop breakfast diner. Sweet treats and belly-filling plates served up daily with a smile.'
-	},
-	{
-		title: '',
-		description: 'Sunsets, live music, sensory games, audio tours, all-night dancing, and more...'
-	},
-	{
-		title: 'Sample Menu',
-		description: ''
-	},
-	{
-		title: 'Lunch',
-		description: 'Mixed Summer Tomato Gazpacho with Grilled Sourdough Toasts (Anchovy Aioli or Forrest Salsa Verde) and Chaga Chocolate Pudding Cups'
-	},
-	{
-		title: '',
-		description: 'Cold Tulsi Lemongrass Tea'
-	},
-	{
-		title: 'Dinner',
-		description: 'Grilled Smallhold Oyster and Lionsmane Mushrooms with Beans and Grilled Greens, Wilsons Sourdough Croutons and Seedy Chili Oil'
-	},
-	{
-		title: '',
-		description: 'Cold Cinnamon Kava Tea'
-	},
-	{
-		title: 'Sample Schedule:',
-		list: [
-			'Slip Away Breakfast Cafe is Open',
-			'Sun Salute',
-			'Send Off',
-			'Morning Workshop',
-			'Loose Time: Swimming , Hiking, Foraging, Resting',
-			'Tara Norvell Lunch',
-			'Afternoon Workshop',
-			'Sunset Live Music',
-			'Tara Norvell Dinner',
-			'Dance Floor Opens',
-			'Ambient Programming in the Den'
-		]
-	},
-	{
-		title: 'Packing List:',
-		list: [
-			'A tent, weatherproof',
-			'Warm clothes',
-			'Cold clothes',
-			'Swimsuit',
-			'A plate',
-			'A mug',
-			'Utensils',
-			'Good shoes'
-		]
-	}
-]
+
+const renderIntro = () => {
+	return (
+		<div className='Popups-container Popups-caps'>
+			<div className='Popups-normal'>
+				<span className='Popups-g'>F</span><span className='Popups-p'>O</span><span className='Popups-b'>F</span>
+				is a three-day outdoor celebration of interconnectedness and new movements.
+			</div>
+			<div className='Popups-normal'>
+				100 connected individuals camping side by side in the Catskills.
+			</div>
+			<div className='Popups-normal'>
+				Simply bringing together like-minded people who don't know each other yet, but should. 
+			</div>
+		</div>
+	)
+}
+
+const renderInfo = () => {
+	return (
+		<div className='Popups-container'>
+			<div className='Popups-normal Popups-caps'>
+				September 3rd-6th<br />
+			</div>
+			<div className='Popups-normal Popups-caps'>
+				The Sweep<br />4275 County Road 6<br />Bovina Center, NY
+			</div>
+			<div className='Popups-normal Popups-caps'>
+				4 Days 3 Nights
+			</div>
+			<div className='Popups-rainbow Popups-caps'>
+				<span>Fire Cooked Food</span>
+				<span>Dancing</span>
+				<span>Swimming</span>
+				<span>Natural Wine</span>
+				<span>Workshops</span>
+				<span>Movement</span>
+				<span>Exchange</span>
+				<span>Flower Picking</span>
+			</div>
+		</div>
+	)
+}
+
+const renderFeatured = () => {
+	return (
+		<div className='Popups-talks'>
+			{talks.map((talk) => (
+				<a href={talk.link} key={talk.title} className='Popups-talkTitle'>
+					{talk.title}
+				</a>
+			))}
+			<div className='Popups-talkTitle'>
+				and more...
+			</div>
+		</div>
+	)
+}
+
+const renderCampsite = () => {
+	return (
+		<div className='Popups-container Popups-green'>
+			<div>This is bare-bones camping</div>
+			<div>Large canvas shading tents, grassy dance floor, mazes mowed into the tall grass, and composting toilets.</div>
+			<div>Outdoor very simple not fancy composting toilets.</div>
+		</div>
+	)
+}
+
+const renderMeals = () => {
+	return (
+		<div className='Popups-container Popups-caps'>
+			<div className='Popups-orange'>
+				Lunch and dinner daily
+			</div>
+			<div className='Popups-orange'>
+				provided by chef Tara Norvell over the communal fire.
+			</div>
+			<br />
+			<div className='Popups-green'>
+				sample menu:
+			</div>
+			<div className='Popups-green'>
+				lunch
+			</div>
+			<div className='Popups-green'>
+				Mixed Summer Tomato Gazpacho with Grilled Sourdough Toasts (Anchovy Aioli or Forrest Salsa Verde) and Chaga Chocolate Pudding Cups
+			</div>
+			<div className='Popups-green'>
+				Cold Tulsi Lemongrass Tea
+			</div>
+			<br />
+			<div className='Popups-green'>
+				dinner
+			</div>
+			<div className='Popups-green'>
+				Grilled Smallhold Oyster and Lionsmane Mushrooms with Beans and Grilled Greens, Wilsons Sourdough Croutons and Seedy Chili Oil
+			</div>
+			<div className='Popups-green'>
+				Cold Cinnamon Kava Tea
+			</div>
+			<br />
+			<div>
+				slipaway cafe
+			</div>
+			<div>
+				A 3 day only hilltop breakfast diner. Sweet treats and belly-filling plates served up daily with a smile.
+			</div>
+		</div>
+	)
+}
+
+const renderStore = () => {
+	return (
+		<div className='Popups-container Popups-caps'>
+			<div>thE BASICS.</div>
+			<div>LOCAL FARM VEG, EGGS, DAIRY, AND CURED SAUSAGES - WITH THEIR FARMERS IN ATTENDANCE.</div>
+			<div>A SELECTION OF CHILLED NATURAL WINE, MEADS, AND LOCAL BEERS</div>
+			<div>KOMBUCHA AND TROY NY SELTZER WATER, HANDMADE SNACKS, YOUR OTHER LEFT EAR CURATED GOODS.</div>
+			<div>CAMPING NECESSITIES SUCH AS HEADLAMPS, BATTERIES, HYGIENE ITEMS, AND NATURAL SUNSCREEN + BUGSPRAY.</div>
+		</div>
+	)
+}
+
+const renderSchedule = () => {
+	return (
+		<div className='Popups-container Popups-caps Popups-blue'>
+			<div>Slip Away Breakfast Cafe is Open</div>
+			<div>Sun Salute</div>
+			<div>Send Off</div>
+			<div>Morning Workshop</div>
+			<div>Loose Time: Swimming , Hiking, Foraging, Resting</div>
+			<div>Tara Norvell Lunch</div>
+			<div>Afternoon Workshop</div>
+			<div>Sunset Live Music</div>
+			<div>Tara Norvell Dinner</div>
+			<div>Dance Floor Opens</div>
+			<div>Ambient Programming in the Den</div>
+		</div>
+	)
+}
+
+const renderPacking = () => {
+	return (
+		<div className='Popups-container Popups-caps Popups-red'>
+			<div>A tent, weatherproof</div>
+			<div>Warm clothes</div>
+			<div>Cold clothes</div>
+			<div>Swimsuit</div>
+			<div>A plate, mug, &amp; Utensils</div>
+			<div>Good shoes</div>
+		</div>
+	)
+}
+
+const popupsInitialData = {
+	intro: { shown: false, title: 'FoF', render: renderIntro },
+	info: { shown: false, title: 'who? what? where?', render: renderInfo },
+	img1: { shown: false, title: '', image: img1 },
+	img2: { shown: false, title: '', image: img2 },
+	img3: { shown: false, title: '', image: img3 },
+	img4: { shown: false, title: '', image: img4 },
+	music: { shown: false, title: 'music', image: music },
+	featured: { shown: false, title: 'featured friends', render: renderFeatured },
+	campsite: { shown: false, title: 'campsite', render: renderCampsite },
+	meals: { shown: false, title: 'meals', render: renderMeals },
+	store: { shown: false, title: 'general store', render: renderStore },
+	schedule: { shown: false, title: 'sample schedule', render: renderSchedule },
+	packing: { shown: false, title: 'packing list', render: renderPacking }
+}
 
 const Popups = () => {
 
-	// const titles = ['FoF', 'where who what', 'music', 'featured friends', 'what to expect', 'tickets']
-
 	const [activeDrags, setActiveDrags] = useState(false)
-	const [showIntro, setShowIntro] = useState(false)
-	const [showInfo, setShowInfo] = useState(false)
-	const [showMusic, setShowMusic] = useState(false)
-	const [showTalks, setShowTalks] = useState(false)
-	const [showExpect, setShowExpect] = useState(false)
-	const [showJoin, setShowJoin] = useState(false)
-	const dragStates = [showIntro, showInfo, showMusic, showTalks, showExpect, showJoin]
-	const drags = [setShowIntro, setShowInfo, setShowMusic, setShowTalks, setShowExpect, setShowJoin]
+	const [topIndex, setTopIndex] = useState(0)
+	const [popupData, setPopupData] = useState(popupsInitialData)
+	const popupDataRef = useRef(popupData)
+	popupDataRef.current = popupData
 
 	useEffect(async () => {
-		for (let i = 0; i < drags.length; i++){
-			const drag = drags[i]
+		Object.entries(popupData).forEach( ([key, value], index) => {
 			setTimeout(() => {
-				drag(true)
-			}, 4000*(i+1))
-		}
+					setPopupData({...popupDataRef.current, [key]: {
+						...popupDataRef.current[key],
+						shown: true
+					}})
+			}, 4000*(index+1))
+		})
 	}, [])
 
 	const onStart = () => {
@@ -150,114 +237,48 @@ const Popups = () => {
 		setActiveDrags(activeDrags - 1);
 	}
 
-	const minimize = (index) => {
-		drags[index](false)
+	const minimize = (e, key) => {
+		setPopupData({...popupData, [key]: {
+			...popupData[key],
+			shown: false
+		}})
 		setTimeout(() => {
-			drags[index](true)
+			setPopupData({...popupDataRef.current, [key]: {
+				...popupDataRef.current[key],
+				shown: true
+			}})
 		}, 4000)
+		e.stopPropagation()
 	}
 
-	const renderBox = (index) => {
-		switch (index) {
-			case 0:
-				return (
-					<>
-						<div className='Popups-purple'>
-							is a three-day outdoor celebration of interconnectedness and new movements. 100 connected individuals camping side-by-side in the Catskills.
-						</div>
-						<div className='Popups-purple'>
-							Simply bringing together like-minded people who don't know each other yet, but should. 
-						</div>
-					</>
-				)
-			case 1:
-				return (
-					<>
-						<div className='Popups-purple'>
-							September 3rd-6th<br />
-							The Sweep 4275 County Road 6 Bovina Center, NY
-						</div>
-						<div className='Popups-purple'>
-							4 Days 3 Nights
-						</div>
-						<div className='Popups-purple'>
-							Fire Cooked Food, Dancing, Swimming. Natural Wines, Workshops, Movement, Exchange, Flower Picking
-						</div>
-					</>
-				)
-			case 2:
-				return (
-					<img className='Popups-image' src={img} alt='' />
-				)
-			case 3:
-				return (
-					<div className='Popups-talks'>
-						{talks.map((talk) => (
-							<React.Fragment key={talk.title}>
-								<div className='Popups-talkTitle'>
-									{talk.title}
-								</div>
-								{talk.description && <div className='Popups-talkDescription'>
-									{talk.description}
-								</div>}
-								{talk.list && <ul className='Popups-bullets'>
-									{talk.list.map((item) => <li>{item}</li>)}
-								</ul>}
-							</React.Fragment>
-						))}
-					</div>
-				)
-			case 4:
-				return (
-					<div className='Popups-talks'>
-						{expectations.map((talk) => (
-							<React.Fragment key={talk.title}>
-								<div className='Popups-talkTitle'>
-									{talk.title}
-								</div>
-								{talk.description && <div className='Popups-talkDescription'>
-									{talk.description}
-								</div>}
-								{talk.list && <ul className='Popups-bullets'>
-									{talk.list.map((item) => <li>{item}</li>)}
-								</ul>}
-							</React.Fragment>
-						))}
-					</div>
-				)
-			case 5:
-				return (
-					<div className='Popups-joinContainer'>
-						<Link to={'/tickets'} className='Popups-join'> 
-							JOIN<br/>US
-							<ReactLogo className='Popups-joinButtonIcon' />
-						</Link>
-						<div className='Popups-smile'>
-							;-)
-						</div>
-					</div>
-				)
-		}
+	const focusBox = (key) => {
+		const zIndex = topIndex + 1
+		setPopupData({...popupData, [key]: {
+			...popupData[key],
+			zIndex: zIndex
+		}})
+		setTopIndex(zIndex)
 	}
 
 	const dragHandlers = { onStart: onStart, onStop: onStop };
 
 	return (
 		<div className="Popups">
-			{dragStates.map((drag, index) => (
+			{Object.entries(popupData).map( ([key, value], index) => (
 				<Draggable
-					key={titles[index]}
+					key={value.title + '_'+ index}
 					handle="strong" {...dragHandlers}>
 					<div
-						style={{ visibility: drag ? 'visible' : 'hidden'}}
+						onClick={() => focusBox(key)}
+						style={{ visibility: value.shown ? 'visible' : 'hidden', zIndex: value.zIndex}}
 						className={`Popups-box Popups-no-cursor Popups-box${index}`}
 					>
 						<strong className="Popups-cursor">
-							<span className="Popups-title">{titles[index]}</span>
-							<span onClick={() => minimize(index)} className="Popups-cursor Popups-close">X</span>
+							<span className="Popups-title">{value.title}</span>
+							<span onClick={(e) => minimize(e, key)} className="Popups-cursor Popups-close">X</span>
 						</strong>
 						<div className="Popups-content">
-							{renderBox(index)}
+							{value.image ? <img src={value.image} className='Popups-image' /> : value.render()}
 						</div>
 					</div>
 				</Draggable>

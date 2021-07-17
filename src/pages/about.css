@@ -10,13 +10,15 @@
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
 	column-gap: 20px;
+	z-index: 9999;
+	pointer-events: none;
 }
 
 .About-row {
 	font-family: 'Cirrus Cumulus';
 	justify-content: space-between;
 	font-size: 9vh;
-	color: white;
+	color: #ffffffa3;
 	display: flex;
 	flex-wrap: nowrap;
 }
