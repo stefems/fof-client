@@ -236,14 +236,14 @@ const Popups = () => {
 	popupDataRef.current = popupData
 
 	useEffect(async () => {
-		// Object.entries(popupData).forEach( ([key, value], index) => {
-		// 	setTimeout(() => {
-		// 			setPopupData({...popupDataRef.current, [key]: {
-		// 				...popupDataRef.current[key],
-		// 				shown: true
-		// 			}})
-		// 	}, 4000*(index+1))
-		// })
+		Object.entries(popupData).forEach( ([key, value], index) => {
+			setTimeout(() => {
+					setPopupData({...popupDataRef.current, [key]: {
+						...popupDataRef.current[key],
+						shown: true
+					}})
+			}, 4000*(index+1))
+		})
 	}, [])
 
 	const onStart = () => {
