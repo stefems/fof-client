@@ -156,6 +156,10 @@
 	left: 45%;
 	top: 55%;
 }
+.Popups-box13 {
+	left: 35%;
+	top: 45%;
+}
 
 @media only screen and (max-width: 900px) {
 	.Popups-box1 {
@@ -256,6 +260,10 @@
 	.Popups-box12 {
 		left: 25%;
 		top: 55%;
+	}
+	.Popups-box13 {
+		left: 19%;
+		top: 35%;
 	}
 }
 

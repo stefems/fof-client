@@ -6,6 +6,8 @@ import img1 from '../../img1.png'
 import img2 from '../../img2.png'
 import img3 from '../../img3.png'
 import img4 from '../../img4.png'
+import { ReactComponent as ReactLogo } from '../../joinButton.svg'
+
 
 import './popups.css'
 
@@ -194,6 +196,20 @@ const renderPacking = () => {
 	)
 }
 
+const renderJoin = () => {
+	return (
+		<div className='Popups-joinContainer'>
+			<Link to={'/tickets'} className='Popups-join'> 
+				JOIN<br/>US
+				<ReactLogo className='Popups-joinButtonIcon' />
+			</Link>
+			<div className='Popups-smile'>
+				;-)
+			</div>
+		</div>
+	)
+}
+
 const popupsInitialData = {
 	intro: { shown: false, title: 'FoF', render: renderIntro },
 	info: { shown: false, title: 'who? what? where?', render: renderInfo },
@@ -207,7 +223,8 @@ const popupsInitialData = {
 	meals: { shown: false, title: 'meals', render: renderMeals },
 	store: { shown: false, title: 'general store', render: renderStore },
 	schedule: { shown: false, title: 'sample schedule', render: renderSchedule },
-	packing: { shown: false, title: 'packing list', render: renderPacking }
+	packing: { shown: false, title: 'packing list', render: renderPacking },
+	join: { shown: false, title: 'tickets', render: renderJoin }
 }
 
 const Popups = () => {
@@ -219,14 +236,14 @@ const Popups = () => {
 	popupDataRef.current = popupData
 
 	useEffect(async () => {
-		Object.entries(popupData).forEach( ([key, value], index) => {
-			setTimeout(() => {
-					setPopupData({...popupDataRef.current, [key]: {
-						...popupDataRef.current[key],
-						shown: true
-					}})
-			}, 4000*(index+1))
-		})
+		// Object.entries(popupData).forEach( ([key, value], index) => {
+		// 	setTimeout(() => {
+		// 			setPopupData({...popupDataRef.current, [key]: {
+		// 				...popupDataRef.current[key],
+		// 				shown: true
+		// 			}})
+		// 	}, 4000*(index+1))
+		// })
 	}, [])
 
 	const onStart = () => {
