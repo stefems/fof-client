@@ -10,7 +10,7 @@
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
 	column-gap: 20px;
-	z-index: 9999;
+	z-index: 1;
 	pointer-events: none;
 }
 

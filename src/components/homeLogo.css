@@ -1,9 +1,4 @@
 .HomeLogo {
-	color: white;
-	font-family: 'Cirrus Cumulus';
-	font-size: 140px;
-	cursor: pointer;
-	text-decoration: none;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -11,6 +6,22 @@
 	z-index: 1;
 	background: black;
 	border-radius: 9px;
+	display: flex;
+	flex-direction: column;
+}
+.HomeLogo-home {
+	color: white;
+	font-family: 'Cirrus Cumulus';
+	font-size: 140px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.HomeLogo-link {
+	color: white;
+	font-family: 'VCR Solid';
+	font-size: 30px;
+	margin-bottom: 18px;
 }
 
 @media only screen and (max-width: 650px) {

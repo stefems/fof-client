@@ -288,7 +288,7 @@ const Popups = () => {
 					<div
 						onClick={() => focusBox(key)}
 						style={{ visibility: value.shown ? 'visible' : 'hidden', zIndex: value.zIndex}}
-						className={`Popups-box Popups-no-cursor Popups-box${index}`}
+						className={`Popups-box Popups-no-cursor Popups-box${index} ${!value.image ? 'Popups-textContainer' : ''}`}
 					>
 						<strong className="Popups-cursor">
 							<span className="Popups-title">{value.title}</span>

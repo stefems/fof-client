@@ -3,9 +3,18 @@ import './homeLogo.css'
 
 const HomeLogo = () => {
 	return (
-		<Link to="/" className='HomeLogo'>
-			FoF
-		</Link>
+		<div className='HomeLogo'>
+			<Link to="/" className='HomeLogo-home'>
+				FoF
+			</Link>
+			<Link to="/tickets" className='HomeLogo-link'>
+				tickets
+			</Link>
+			<Link to="/about" className='HomeLogo-link'>
+				about
+			</Link>
+		</div>
+		
 	)
 }
 

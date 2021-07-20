@@ -290,6 +290,11 @@
 .Popups-talkDescription {
 	margin-bottom: 20px;
 }
+
+.Popups-textContainer {
+	z-index: 2;
+}
+
 .Popups-talkDescription:last-child {
 	margin-bottom: 0;
 }
