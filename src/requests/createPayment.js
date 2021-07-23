@@ -24,6 +24,7 @@ const createPayment = async (token, person, ticketCount) => {
 		// //send request to send email
 		return paymentResponse.json();
 	}
+	console.log(paymentResponse)
 	const errorBody = await paymentResponse.text();
 	throw new Error(errorBody);
 }
