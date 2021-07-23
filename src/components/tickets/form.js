@@ -104,7 +104,7 @@ const Form = ({ back, ticketCount, done, setInvalidToken }) => {
 			return
 			// throw new Error('Square.js failed to load properly');
 		}
-		const payments = window.Square.payments(env.ENV === 'prod' ? env.SQUARE_ID_PROD : env.SQUARE_ID, env.SQUARE_LOCATON_ID);
+		const payments = window.Square.payments(env.ENV === 'prod' ? env.SQUARE_ID_PROD : env.SQUARE_ID, env.ENV === 'prod' ? env.SQUARE_LOCATON_ID_PROD : env.SQUARE_LOCATON_ID);
 		try {
 			let card = await initializeCard(payments);
 			setCard(card);
