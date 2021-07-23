@@ -25,12 +25,14 @@
 			Learn how to configure a non-root public URL by running `npm run build`.
 		-->
     <title>FOF</title>
-    <script
-      type="text/javascript"
-      src="https://sandbox.web.squarecdn.com/v1/square.js"
-    ></script>
     <link rel="stylesheet" type="text/css" href="mysqpaymentform.css" />
     <script id="react-dotenv" src="./env.js"></script>
+    <script>
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = env.SQUARE_SCRIPT_URL;
+      document.head.appendChild(script);
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

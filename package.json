@@ -45,7 +45,8 @@
       "SQUARE_ID_PROD",
       "SQUARE_LOCATION_ID",
       "SQUARE_LOCATION_ID_PROD",
-      "ENV"
+      "ENV",
+      "SQUARE_SCRIPT_URL"
     ]
   }
 }
