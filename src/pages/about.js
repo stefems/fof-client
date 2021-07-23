@@ -1,4 +1,4 @@
-import { Popups } from '../components'
+import { Popups, NatureSounds } from '../components'
 
 import './about.css'
 
@@ -7,6 +7,7 @@ const About = () => {
 	return (
 		<div className='About'>
 			<Popups />
+			<NatureSounds />
 			<div className='About-grid'>
 				<div className='About-row About-topLeft'>
 					<span>Friends</span>

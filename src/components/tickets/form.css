@@ -4,8 +4,18 @@
 	flex-wrap: nowrap;
 	justify-content: space-evenly;
 	width: 100%;
+	padding: 40px 63px;
+	box-sizing: border-box;
+	position: relative;
 }
-
+.Form-info {
+	margin-right: 60px;
+}
+.Form-radioContainer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
 .Form-circle {
 	border: solid #FA15FF 5px;
 	color: #FA15FF;
@@ -13,6 +23,7 @@
 	border-radius: 100%;
 	margin-bottom: 70px;
 	font-size: 36px;
+	display: inline-flex;
 }
 .Form-ticket {
 	color: #2300FA;
@@ -34,6 +45,10 @@
 	font-size: 26px;
 	color: #2300FA;
 	margin-bottom: 3em;
+}
+
+.Form-money {
+	text-transform: uppercase;
 }
 
 .Form-total {
@@ -75,6 +90,7 @@
 	width: 160px;
 	text-align: center;
 	justify-content: center;
+	margin-bottom: 20px;
 }
 
 .Form-payment {
@@ -101,6 +117,7 @@
 	font-size: 23px;
 	font-family: 'VCR Solid';
 	margin: auto;
+	margin-bottom: 20px;
 }
 .Form-back:hover {
 	border-color: #2300FA;
@@ -126,9 +143,18 @@
 	margin-right: 30px
 }
 
+.Form-carpool {
+	width: 100%;
+	justify-content: left;
+}
+
 .Form-processing {
+	position: absolute;
+	top: 0;
+	left: 0;
 	width: 100vw;
-	height: 100vh;
+	min-height: 100vh;
+	height: 100%;
 	background: rgba(0,0,0, .7);
 	font-size: 48px;
 	font-family: 'VCR Solid';
@@ -171,20 +197,81 @@
 	flex-wrap: wrap;
 }
 
+.Form-radio {
+	text-transform: uppercase;
+	color: #2300FA;
+	font-size: 26px;
+	margin-bottom: 1em;
+	display: flex;
+	flex-wrap: wrap;
+	line-height: 1.25em;
+}
+
+.Form-top {
+	margin-top: 1em;
+}
+
+.Form-beforeTextArea {
+	margin-bottom: 0;
+}
+
+.Form-radio input {
+	display: none;
+}
+.Form-radioLabel {
+	margin-right: 12px;
+	text-align: left;
+}
+.Form-radioDivider {
+	margin: 0 12px;
+}
+.Form-radioLabel {
+	cursor: pointer;
+}
+.Form-textArea {
+	border: none;
+	outline: none;
+	background: none;
+	background-attachment: local;
+	background-image:
+		linear-gradient(to right, transparent 10px, transparent 10px),
+		linear-gradient(to left, transparent 10px, transparent 10px),
+		repeating-linear-gradient(transparent, transparent 33px, #2300FA 28px, #2300FA 36px, #2300FA 36px);
+	line-height: 33px;
+	padding: 8px 10px;
+	resize: none;
+	width: 66.66%;
+	color: #2300FA;
+	font-size: 28px;
+	font-family: 'VCR Solid';
+}
+.Form-radioClick {
+	cursor: pointer;
+}
+.Form-radioClick.Form-radioActive {
+	color: #FA15FF;
+}
 @media only screen and (max-width: 1023px) {
 	.Form {
 		flex-direction: column;
+		padding-top: 40px;
 	}
-	.Form-right,
-	.Form-left {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+	.Form-info {
+		margin-right: 0;
+		text-align: center;
+	}
+	.Form-money {
+		text-align: center;
 	}
 	.Form-circle {
-		margin-bottom: 20px;
+		margin-bottom: 40px;
 		margin-top: 20px;
 		max-width: 200px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.Form-carpool {
+		width: 100%;
 	}
 	.Form-tax {
 		margin-bottom: 20px;
@@ -209,27 +296,52 @@
 }
 
 @media only screen and (max-width: 700px) {
+	.Form {
+		padding: 20px;
+	}
 	.Form-data {
 		display: flex;
 		flex-direction: column;
 	}
+	.Form-radio {
+		justify-content: center;
+	}
+	.Form-radioLabel {
+		text-align: center;
+		margin-right: 0;
+		width: 100%;
+	}
+	.Form-info {
+		margin-right: 0;
+		text-align: center;
+	}
+	.Form-money {
+		text-align: center;
+	}
 	.Form-total {
 		margin-bottom: 25px;
 	}
-	.Form-input {
-		width: 90%;
+	.Form-carpool {
+		width: 100%;
+		justify-content: center;
 	}
 	.Form-subtotal,
 	.Form-total,
 	.Form-tax {
 		font-size: 22px;
 	}
+	.Form-radioClick,
+	.Form-radioLabel,
 	.Form-input-label {
 		font-size: 20px;
 	}
 	.Form-back,
 	.Form-submit {
 		font-size: 20px;
+	}
+	.Form-circle {
+		margin-left: auto;
+		margin-right: auto;
 	}
 	.Form-circle,
 	.Form-ticket {
@@ -247,16 +359,24 @@
 	.Form-data {
 		display: flex;
 		flex-direction: column;
-		margin-left: 20px;
 	}
 	.Form-input {
 		width: 90%;
+	}
+	.Form-radio {
+		justify-content: center;
+	}
+	.Form-circle {
+		margin-left: auto;
+		margin-right: auto;
 	}
 	.Form-subtotal,
 	.Form-total,
 	.Form-tax {
 		font-size: 20px;
 	}
+	.Form-radioClick,
+	.Form-radioLabel,
 	.Form-input-label {
 		font-size: 20px;
 	}

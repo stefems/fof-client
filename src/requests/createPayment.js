@@ -1,11 +1,12 @@
 import env from "react-dotenv"
 
-const createPayment = async (token, person) => {
+const createPayment = async (token, person, ticketCount) => {
 	const body = JSON.stringify({
 		locationId: env.ENV === 'prod' ? env.SQUARE_LOCATION_ID_PROD : env.SQUARE_LOCATION_ID,
 		sourceId: token,
 		code: localStorage.getItem('fof-code'),
-		person: person
+		person: person,
+		ticketCount: ticketCount
 	});
 	let url = 'https://fof-festival-api.herokuapp.com/api/square/purchase'
 	if (window.location.href.indexOf('localhost') !== -1) {
