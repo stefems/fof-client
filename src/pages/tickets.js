@@ -66,7 +66,7 @@ const Tickets = () => {
 			)}
 			{!loading && allowPurchase === false && (
 				<div className='Tickets-loadingText Tickets-max'>
-					The tickets available for this passcode have already been purchased :(
+					Tickets are currently unavailable. Check back in soon! :(
 					<a href="/about" className={'Tickets-link'}>
 						return home
 					</a>
